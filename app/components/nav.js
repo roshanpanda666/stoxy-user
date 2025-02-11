@@ -8,7 +8,7 @@ const Nav = () => {
                     my-orders
                 </div>
                 <div>
-                    me
+                    profile
                 </div>
             </div>
         </div>
