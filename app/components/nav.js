@@ -7,8 +7,9 @@ const Nav = () => {
                 <div>
                     my-orders
                 </div>
+                {/* add a favicon here  */}
                 <div>
-                    profile
+                    profile 
                 </div>
             </div>
         </div>
