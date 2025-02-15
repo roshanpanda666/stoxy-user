@@ -5,7 +5,7 @@ import Nav from './components/nav'
 const page = () => {
   return (
     <div>
-      user-stoxy
+      stoxy
       <div>
         <Nav></Nav>
       </div>
