@@ -3,24 +3,42 @@ import React from 'react'
 import { useRef } from 'react'
 
 const Register = () => {
-let username=useRef()
+let usernameref=useRef()
 let emailref=useRef()
 let pwdref=useRef()
 
-const onsubmitfunction = ()=>{
-  const uref=username.current.value
-  const eref=emailref.current.value
-  const pref=pwdref.current.value
+const onsubmitfunction = async()=>{
+  const username=usernameref.current.value
+  const email=emailref.current.value
+  const password=pwdref.current.value
 
-  alert(eref)
-  alert(pref)
-  alert(uref)
+  alert(username)
+  alert(email)
+  alert(password)
+
+try {
+    const res=await fetch("/api/userregister",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify({username,email,password})
+    })
+
+    if (res.ok){
+        alert("data pushed")
+        clearfun()
+    }
+} catch (error) {
+    alert("data not pushed successfully ")
+}
+
 }
 
 function clearfun(){
   emailref.current.value=("")
   pwdref.current.value=("")
-  username.current.value=("")
+  usernameref.current.value=("")
 }
   return (
     <div>
@@ -29,7 +47,7 @@ function clearfun(){
 
             <div className='mt-16'>
                 
-                <input ref={username} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2'/>
+                <input ref={usernameref} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2'/>
             </div>
             <div className='mt-16'>
                 
