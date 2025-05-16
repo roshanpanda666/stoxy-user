@@ -6,15 +6,18 @@ const Register = () => {
 let usernameref=useRef()
 let emailref=useRef()
 let pwdref=useRef()
+let product="initial"
 
 const onsubmitfunction = async()=>{
   const username=usernameref.current.value
   const email=emailref.current.value
   const password=pwdref.current.value
-
+  
   alert(username)
   alert(email)
   alert(password)
+  alert(product)
+  
 
 try {
     const res=await fetch("/api/userregister",{
@@ -22,12 +25,15 @@ try {
         headers:{
             "Content-Type":"application/json"
         },
-        body:JSON.stringify({username,email,password})
+        body:JSON.stringify({username,email,password,product})
     })
 
     if (res.ok){
         alert("data pushed")
         clearfun()
+    }
+    else{
+        alert("fill all the input fields")
     }
 } catch (error) {
     alert("data not pushed successfully ")
@@ -37,7 +43,7 @@ try {
 
 function clearfun(){
   emailref.current.value=("")
-  pwdref.current.value=("")
+  pwdref.current.value=("") 
   usernameref.current.value=("")
 }
   return (
@@ -49,7 +55,7 @@ function clearfun(){
                 
                 <input ref={usernameref} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2'/>
             </div>
-            <div className='mt-16'>
+            <div className='mt-10'>
                 
                 <input ref={emailref} type="text" placeholder='email' className='bg-black text-cyan-300 border-2'/>
             </div>
@@ -57,10 +63,10 @@ function clearfun(){
                 <input ref={pwdref} type="password" placeholder='password' className='bg-black text-cyan-300 border-2'/>
             </div>
             <div>
-              <button className='text-center border-white  text-white border-2 mt-11 w-16'onClick={onsubmitfunction}>submit</button>
+              <button className='text-center border-white  text-white border-2 mt-11 w-16 hover:border-green-400 hover:text-green-300'onClick={onsubmitfunction}>submit</button>
             </div>
             <div>
-              <button className='text-center border-white  text-white border-2 mt-6 w-16'onClick={clearfun}>clear</button>
+              <button className='text-center border-white  text-white border-2 mt-6 w-16 hover:border-red-400 hover:text-red-300'onClick={clearfun}>clear</button>
             </div>
         </div>
             
