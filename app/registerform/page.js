@@ -6,7 +6,7 @@ const Register = () => {
 let usernameref=useRef()
 let emailref=useRef()
 let pwdref=useRef()
-let product="initial"
+let product="initial-value"
 
 const onsubmitfunction = async()=>{
   const username=usernameref.current.value
