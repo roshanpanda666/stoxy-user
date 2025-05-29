@@ -8,6 +8,6 @@ export async function GET(){
 
     await mongoose.connect(connectionSRT)
     const data = await User.find()
-    console.log(data)
+    // console.log(data)
     return NextResponse.json({result:data,success:"true"})
 }
