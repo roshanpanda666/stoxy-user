@@ -1,75 +1,68 @@
 "use client"
-import React from 'react'
-import { useRef } from 'react'
+
+import React, { useRef } from 'react'
+import { useRouter } from 'next/navigation'  // ✅ Import router for App Router
 
 const Register = () => {
-let usernameref=useRef()
-let emailref=useRef()
-let pwdref=useRef()
-let product="initial-value"
+  const usernameref = useRef()
+  const emailref = useRef()
+  const pwdref = useRef()
+  const router = useRouter()
+  const product = "initial-value"
 
-const onsubmitfunction = async()=>{
-  const username=usernameref.current.value
-  const email=emailref.current.value
-  const password=pwdref.current.value
-  
-  alert(username)
-  alert(email)
-  alert(password)
-  alert(product)
-  
+  const onsubmitfunction = async () => {
+    const username = usernameref.current.value
+    const email = emailref.current.value
+    const password = pwdref.current.value
 
-try {
-    const res=await fetch("/api/userregister",{
-        method:"POST",
-        headers:{
-            "Content-Type":"application/json"
+    try {
+      const res = await fetch("/api/userregister", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
         },
-        body:JSON.stringify({username,email,password,product})
-    })
+        body: JSON.stringify({ username, email, password, product })
+      })
 
-    if (res.ok){
-        alert("data pushed")
+      if (res.ok) {
+        alert("Data pushed successfully")
         clearfun()
+        router.push('/loginform')  // ✅ Navigate to loginform
+      } else {
+        alert("Error pushing data")
+      }
+    } catch (error) {
+      alert("Data not pushed successfully")
     }
-    else{
-        alert("fill all the input fields")
-    }
-} catch (error) {
-    alert("data not pushed successfully ")
-}
+  }
 
-}
+  function clearfun() {
+    emailref.current.value = ""
+    pwdref.current.value = ""
+    usernameref.current.value = ""
+  }
 
-function clearfun(){
-  emailref.current.value=("")
-  pwdref.current.value=("") 
-  usernameref.current.value=("")
-}
   return (
     <div>
       <div className='text-center items-center justify-center flex flex-col mt-40'>
         <div className='w-96 h-96 border-2 border-cyan-500'>
 
-            <div className='mt-16'>
-                
-                <input ref={usernameref} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2'/>
-            </div>
-            <div className='mt-10'>
-                
-                <input ref={emailref} type="text" placeholder='email' className='bg-black text-cyan-300 border-2'/>
-            </div>
-            <div className='mt-10'>
-                <input ref={pwdref} type="password" placeholder='password' className='bg-black text-cyan-300 border-2'/>
-            </div>
-            <div>
-              <button className='text-center border-white  text-white border-2 mt-11 w-16 hover:border-green-400 hover:text-green-300'onClick={onsubmitfunction}>submit</button>
-            </div>
-            <div>
-              <button className='text-center border-white  text-white border-2 mt-6 w-16 hover:border-red-400 hover:text-red-300'onClick={clearfun}>clear</button>
-            </div>
+          <div className='mt-16'>
+            <input ref={usernameref} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2' />
+          </div>
+          <div className='mt-10'>
+            <input ref={emailref} type="text" placeholder='email' className='bg-black text-cyan-300 border-2' />
+          </div>
+          <div className='mt-10'>
+            <input ref={pwdref} type="password" placeholder='password' className='bg-black text-cyan-300 border-2' />
+          </div>
+          <div>
+            <button className='text-center border-white  text-white border-2 mt-11 w-16 hover:border-green-400 hover:text-green-300' onClick={onsubmitfunction}>submit</button>
+          </div>
+          <div>
+            <button className='text-center border-white  text-white border-2 mt-6 w-16 hover:border-red-400 hover:text-red-300' onClick={clearfun}>clear</button>
+          </div>
         </div>
-            
       </div>
     </div>
   )
