@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Nav from '../components/nav'
-import Productlist from '../components/productlist'
+import Productlist from '../components/Productlist'
 
 const page = () => {
   return (
