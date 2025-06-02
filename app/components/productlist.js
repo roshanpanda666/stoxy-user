@@ -12,7 +12,7 @@ const getProducts = async () => {
   }
 };
 
-const Productlist = () => {
+const ProductList = () => {
   const [productlist, setProductList] = useState([]);
 
   useEffect(() => {
@@ -63,4 +63,4 @@ const Productlist = () => {
   );
 };
 
-export default Productlist;
+export default ProductList;
