@@ -1,17 +1,38 @@
 "use client"
 import React from 'react'
 import { useRef } from 'react'
+import { useRouter } from "next/navigation"
+import { signIn } from "next-auth/react"
 
 const Login = () => {
+const router=useRouter()
 let emailref=useRef()
 let pwdref=useRef()
 
-const onsubmitfunction = ()=>{
-  const eref=emailref.current.value
-  const pref=pwdref.current.value
+const onsubmitfunction = async()=>{
+  const email=emailref.current.value
+  const password=pwdref.current.value
 
-  alert(eref)
-  alert(pref)
+  alert(email)
+  alert(password)
+
+  try{
+    const res=await signIn("credentials",{
+        email,
+        password,
+        redirect:false,
+    })
+    if(res.error){
+        setError("invalid credentials")
+        alert("error")
+        return
+    }
+
+    router.replace("/home")
+}
+catch(error){
+    console.log("error");
+}
 }
 
 function clearfun(){

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Link from 'next/link';
 const Nav = () => {
     return (
         <div>
@@ -8,9 +8,12 @@ const Nav = () => {
                     my-orders
                 </div>
                 {/* add a favicon here  */}
-                <div>
-                    profile 
-                </div>
+                <Link href='/profile'>
+                    <div>
+                        profile
+                    </div>
+                </Link>
+                
             </div>
         </div>
     )

@@ -1,16 +1,12 @@
 import React from 'react'
-import ProductList from './components/productlist'
-import Nav from './components/nav'
+import Login from './components/login'
 
 const page = () => {
   return (
     <div>
       stoxy
       <div>
-        <Nav></Nav>
-      </div>
-      <div>
-        <ProductList></ProductList>
+        <Login></Login>
       </div>
     </div>
   )

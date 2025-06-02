@@ -8,13 +8,12 @@ const Register = () => {
   const emailref = useRef()
   const pwdref = useRef()
   const router = useRouter()
-  const product = "initial-value"
 
   const onsubmitfunction = async () => {
     const username = usernameref.current.value
     const email = emailref.current.value
     const password = pwdref.current.value
-
+    const product = "initial-value"
     try {
       const res = await fetch("/api/userregister", {
         method: "POST",
@@ -27,7 +26,7 @@ const Register = () => {
       if (res.ok) {
         alert("Data pushed successfully")
         clearfun()
-        router.push('/loginform')  // ✅ Navigate to loginform
+        router.push('/')  // ✅ Navigate to loginform
       } else {
         alert("Error pushing data")
       }

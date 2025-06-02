@@ -1,7 +1,7 @@
 import { connectionSRT } from "@/app/lib/d";
 import { UserM } from "@/app/lib/model/user-schema";
 import nextAuth from "next-auth";
-import { CredentialsProvider } from "next-auth/providers";
+import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import mongoose from "mongoose";
 
@@ -41,7 +41,7 @@ export const authOption={
     },
     secret:process.env.NEXTAUTH_SECRET,
     pages:{
-        signIn:"/loginform"
+        signIn:"/"
     }
 }
 

@@ -14,7 +14,7 @@ export async function POST(request){
             username: payload.username, 
             email: payload.email,
             password: hashedPassword,
-            products: payload.products, 
+            product: payload.product, 
           });
 
           const result = await userr.save();
