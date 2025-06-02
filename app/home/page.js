@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Nav from '../components/nav'
-import ProductList from '../components/ProductList'
+import ProductList_p from '../components/ProductList_p'
+
 
 const page = () => {
   return (
@@ -11,7 +12,7 @@ const page = () => {
         <Nav></Nav>
       </div>
       <div>
-       <ProductList></ProductList>
+       <ProductList_p></ProductList_p>
       </div>
     </div>
   )
