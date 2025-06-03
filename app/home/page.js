@@ -7,7 +7,6 @@ import ProductList_p from '../components/ProductList_p'
 const page = () => {
   return (
     <div>
-      stoxy
       <div>
         <Nav></Nav>
       </div>
