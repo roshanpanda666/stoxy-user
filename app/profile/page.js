@@ -23,6 +23,8 @@ const page = () => {
 
 
   return (
+  <>
+
     <div>
       <div>
       hello {name}
@@ -35,7 +37,15 @@ const page = () => {
       <div>
         products : {product}
       </div>
+
+      <button
+          className="w-full bg-red-500 hover:bg-red-600 py-2 mt-6 rounded-lg text-white transition duration-200"
+          onClick={() => signOut()}
+        >
+          Log Out
+        </button>
     </div>
+  </>
   )
 }
 

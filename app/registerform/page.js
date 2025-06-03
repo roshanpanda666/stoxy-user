@@ -44,9 +44,13 @@ const Register = () => {
   return (
     <div>
       <div className='text-center items-center justify-center flex flex-col mt-40'>
-        <div className='w-96 h-96 border-2 border-cyan-500'>
+        <div className='w-96 h-96 border-2 border-cyan-500 rounded-[30px]'>
 
-          <div className='mt-16'>
+          <div className='mt-10'>
+            Register yourself
+          </div>
+
+          <div className='mt-6'>
             <input ref={usernameref} type="text" placeholder='user-name' className='bg-black text-cyan-300 border-2' />
           </div>
           <div className='mt-10'>
