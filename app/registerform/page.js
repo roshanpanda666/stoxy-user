@@ -17,7 +17,7 @@ const Register = () => {
     // ✅ Initial product
     const initialProduct = [
       {
-        brand: "Getting Started",
+        brand: "initial product",
         price: 0,
         quantity: 1,
       },

@@ -19,7 +19,7 @@ const Nav = () => {
 
   return (
     <nav className=" shadow-md py-6 px-6">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+      <div className="max-w-9xl mx-auto flex items-center justify-between">
         {/* Left - Branding */}
         <Link href="/home">
           <span className="text-xl font-bold text-white cursor-pointer flex gap-3">
@@ -38,7 +38,7 @@ const Nav = () => {
             <div>
                 hello <span className="text-cyan-300">{name}</span>
             </div>
-          <Link href="/orders">
+          <Link href="/order-page">
             <span className="text-white hover:text-cyan-400 transition cursor-pointer">
               My Orders
             </span>

@@ -26,8 +26,8 @@ export default async function CartPage(props) {
   return (
     <div className="p-6 text-white">
       <Nav />
-      <h1 className="text-2xl font-bold text-cyan-500 mb-4">Cart Page</h1>
-      <div className="border border-cyan-400 p-4 rounded">
+      <h1 className="text-2xl font-bold text-cyan-500 mb-4 w-[80%]">Cart Page</h1>
+      <div className="border border-cyan-400 p-14 rounded">
         <p><strong>Product:</strong> {product.brand}</p>
         <p><strong>Price:</strong> ₹{product.price}</p>
         <p><strong>Quantity:</strong> {product.quantity}</p>

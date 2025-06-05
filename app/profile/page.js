@@ -40,8 +40,17 @@ const Page = () => {
       </div>
 
       <div className="mb-2">
-        <strong>Products:</strong> {product || "None"}
-      </div>
+  <strong>Products:</strong>
+  {Array.isArray(product) && product.length > 0 ? (
+    <ul className="list-disc pl-5">
+      {product.map((item, index) => (
+        <li key={index}>{item.name || JSON.stringify(item)}</li>
+      ))}
+    </ul>
+  ) : (
+    " None"
+  )}
+</div>
 
       <button
         className="w-full bg-red-500 hover:bg-red-600 py-2 mt-6 rounded-lg text-white transition duration-200"
