@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const getProducts = async () => {
   try {
@@ -14,6 +15,7 @@ const getProducts = async () => {
 
 const ProductList_p = () => {
   const [productlist, setProductList] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -25,6 +27,10 @@ const ProductList_p = () => {
     const interval = setInterval(loadProducts, 1000);
     return () => clearInterval(interval);
   }, []);
+
+  const handleAddToCart = (id) => {
+    router.push(`/cart/${id}`);
+  };
 
   return (
     <div className="p-4">
@@ -51,7 +57,10 @@ const ProductList_p = () => {
             <div className="w-1/4 text-cyan-600">{item.price}</div>
             <div className="w-1/4">{item.quantity}</div>
             <div className="w-1/4">
-              <button className="text-white bg-black border-l-2 border-r-2 border-cyan-300 hover:border-2 px-2 py-1 rounded">
+              <button
+                onClick={() => handleAddToCart(item._id)}
+                className="text-white bg-black border-l-2 border-r-2 border-cyan-300 hover:border-2 px-2 py-1 rounded"
+              >
                 Add to Cart
               </button>
             </div>
