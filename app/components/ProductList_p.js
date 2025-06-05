@@ -21,15 +21,8 @@ const ProductList_p = () => {
       setProductList(products);
     };
 
-    // Initial fetch
     loadProducts();
-
-    // Fetch data every 1 second
-    const interval = setInterval(() => {
-      loadProducts();
-    }, 1000);
-
-    // Cleanup interval on unmount
+    const interval = setInterval(loadProducts, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -39,21 +32,29 @@ const ProductList_p = () => {
         Products Available
       </div>
 
-      <div className="grid grid-cols-3 sm:grid-cols-3 text-center font-medium border-b-2 border-cyan-400 pb-2">
-        <div>Product</div>
-        <div>Price</div>
-        <div>Quantity</div>
+      {/* Header row */}
+      <div className="flex text-center font-medium border-b-2 border-cyan-400 pb-2">
+        <div className="w-1/4">Product</div>
+        <div className="w-1/4">Price</div>
+        <div className="w-1/4">Quantity</div>
+        <div className="w-1/4">Action</div>
       </div>
 
+      {/* Product rows */}
       {Array.isArray(productlist) && productlist.length > 0 ? (
         productlist.map((item, index) => (
           <div
             key={index}
-            className="grid grid-cols-3 sm:grid-cols-3 text-center py-2 border-b border-gray-300"
+            className="flex text-center py-2 border-b border-gray-300 items-center"
           >
-            <div className="px-2">{item.brand}</div>
-            <div className="px-2 text-cyan-600">{item.price}</div>
-            <div className="px-2">{item.quantity}</div>
+            <div className="w-1/4 text-white">{item.brand}</div>
+            <div className="w-1/4 text-cyan-600">{item.price}</div>
+            <div className="w-1/4">{item.quantity}</div>
+            <div className="w-1/4">
+              <button className="text-white bg-black border-l-2 border-r-2 border-cyan-300 hover:border-2 px-2 py-1 rounded">
+                Add to Cart
+              </button>
+            </div>
           </div>
         ))
       ) : (
