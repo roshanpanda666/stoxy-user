@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
+import Profilename from "./profilename";
 const Nav = () => {
     const[name,setname]=useState("...")
     const { data: session} = useSession();
@@ -49,6 +50,7 @@ const Nav = () => {
               <span className="text-white hover:text-cyan-400 transition">
                 Profile
               </span>
+
             </div>
           </Link>
         </div>
