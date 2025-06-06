@@ -26,6 +26,7 @@ export async function GET() {
       username: user.username,
       email: user.email,
       products: user.products,
+      buying:user.buying
     });
   } catch (err) {
     console.error("Error in /api/profilerote:", err);
