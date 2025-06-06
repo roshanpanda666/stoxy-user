@@ -28,6 +28,7 @@ const Page = () => {
     signOut({ callbackUrl: "/loginform" });
   };
 
+
   if (status === "loading") {
     return <div className="p-4 text-gray-600">Loading...</div>;
   }
@@ -64,10 +65,10 @@ const Page = () => {
         </div>
 
         <button
-          onClick={handleLogout}
-          className="mt-6 w-full bg-red-500 hover:bg-red-600 text-white py-2 rounded-lg transition duration-200"
+          onClick={buy_now}
+          className="mt-6 w-full bg-black hover:bg-green-400 text-white py-2 rounded-lg transition duration-200"
         >
-          Log Out
+          Buy Now
         </button>
       </div>
     </div>
