@@ -37,7 +37,21 @@ const Page = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ buying: "true" }), // or "false"
-    });
+    })
+    alert("order successful");
+    
+  }
+
+  const cancel_now=async()=>{
+    await fetch("/api/buyingput", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ buying: "false" }), // or "false"
+    }
+    )
+    alert("item canceled");
     
   }
 
@@ -82,6 +96,12 @@ const Page = () => {
           className="mt-6 w-full bg-black hover:bg-green-400 text-white py-2 rounded-lg transition duration-500 hover:text-black border-cyan-300 border-2"
         >
           Buy Now
+        </button>
+        <button
+          onClick={cancel_now}
+          className="mt-6 w-full bg-black hover:bg-red-400 text-white py-2 rounded-lg transition duration-500 hover:text-black border-cyan-300 border-2"
+        >
+          cancel now
         </button>
       </div>
     </div>
