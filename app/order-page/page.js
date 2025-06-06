@@ -9,6 +9,8 @@ const Page = () => {
   const [name, setName] = useState("");
   const [products, setProducts] = useState([]);
 
+
+
   useEffect(() => {
     if (status === "authenticated") {
       fetch("/api/profilerote")
@@ -27,6 +29,17 @@ const Page = () => {
   const handleLogout = () => {
     signOut({ callbackUrl: "/loginform" });
   };
+
+  const buy_now=async()=>{
+    await fetch("/api/buyingput", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ buying: "true" }), // or "false"
+    });
+    
+  }
 
 
   if (status === "loading") {
@@ -66,7 +79,7 @@ const Page = () => {
 
         <button
           onClick={buy_now}
-          className="mt-6 w-full bg-black hover:bg-green-400 text-white py-2 rounded-lg transition duration-200"
+          className="mt-6 w-full bg-black hover:bg-green-400 text-white py-2 rounded-lg transition duration-500 hover:text-black border-cyan-300 border-2"
         >
           Buy Now
         </button>

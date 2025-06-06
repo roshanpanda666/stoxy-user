@@ -23,13 +23,15 @@ const Register = () => {
       },
     ];
 
+    const buying="false"
+
     try {
       const res = await fetch("/api/userregister", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, email, password, products: initialProduct }),
+        body: JSON.stringify({ username, email, password, products: initialProduct,buying}),
       });
 
       if (res.ok) {

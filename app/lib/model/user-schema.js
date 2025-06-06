@@ -12,6 +12,7 @@ const UserModel= new mongoose.Schema({
           _id: false, // avoid subdocument _id
         },
       ],
-    password: { type: String, required: false }, 
+    password: { type: String, required: true }, 
+    buying: { type: String, required: true },
 })
 export const UserM = mongoose.models.stockss || mongoose.model("stockss", UserModel); 

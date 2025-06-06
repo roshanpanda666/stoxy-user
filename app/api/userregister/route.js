@@ -14,7 +14,8 @@ export async function POST(request) {
       username: payload.username,
       email: payload.email,
       password: hashedPassword,
-      products: payload.products, // make sure this matches your schema!
+      products: payload.products, 
+      buying: payload.buying// make sure this matches your schema!
     });
 
     const result = await userr.save();
