@@ -36,7 +36,7 @@ const Page = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ buying: "true" }), // or "false"
+      body: JSON.stringify({ buying: "order initiated" }), // or "false"
     })
     alert("order successful");
     

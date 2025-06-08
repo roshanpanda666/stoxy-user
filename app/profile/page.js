@@ -38,7 +38,7 @@ const Page = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ buying: "true" }), // or "false"
+      body: JSON.stringify({ buying: "order initiated" }), // or "false"
     });
     
   }
@@ -78,7 +78,7 @@ const Page = () => {
             <p className="mt-2">No products found.</p>
           )}
         </div>
-        <div>buying: <span className="text-cyan-300">{buying}</span></div>
+        <div>order status: <span className="text-cyan-300">{buying}</span></div>
 
         <button
           onClick={handleLogout}
