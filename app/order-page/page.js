@@ -48,7 +48,7 @@ const Page = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ buying: "false" }), // or "false"
+      body: JSON.stringify({ buying: "order canceled" }), // or "false"
     }
     )
     alert("item canceled");
